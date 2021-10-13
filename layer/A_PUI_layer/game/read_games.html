@@ -1,0 +1,49 @@
+{% extends "base_game.html" %}
+{% block content_game %}
+<h1 class="text-center">Table of Game</h1>
+<br>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == 'create-success' or category == 'update-success' or category == 'delete-success'%}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<table class="table table-secondary table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for game in games_list %}
+    <tr>
+        <td>{{ game.id }}</td>
+        <td>{{ game.name }}</td>
+        <td>{{ game.brand }}</td>
+        <td>
+            <form action="{{ url_for('read_game_details', game_id=game.id) }}" method="GET">
+                <input class="btn btn-primary" type="submit" value="View">
+            </form>
+        </td>
+        <td>
+            <form action="{{ url_for('update_game', game_id=game.id) }}" method="GET">
+                <input class="btn btn-success" type="submit" value="Edit">
+            </form>
+        </td>
+        <td>
+            <form action="{{ url_for('delete_game', game_id=game.id) }}" method="POST">
+                <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

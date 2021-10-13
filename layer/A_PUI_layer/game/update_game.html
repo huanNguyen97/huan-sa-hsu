@@ -1,0 +1,47 @@
+{% extends 'base_game.html' %}
+{% block content_game %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == 'update-fail'%}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<form action="{{ url_for('update_game', game_id=game.id) }}" method="POST">
+    <table>
+        <tr>
+            <th>Index</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" value="{{ game.name }}" /></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td><input type="text" name="category" value="{{ game.category }}" /></td> 
+        </tr>
+        <tr>
+            <td>Brand</td>
+            <td><input type="text" name="brand" value="{{ game.brand }}" /></td>  
+        </tr>
+        <tr>
+            <td>Year released</td>
+            <td><input type="text" name="year_released" value="{{ game.year_released }}" /></td>   
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" name="price" value="{{ game.price }}" /></td> 
+        </tr>
+        <tr>
+            <input type="hidden" name="id" value="{{ game.id }}">
+        </tr>
+    </table>
+    <input type="submit" name="submit" />
+</form>
+{% endblock %}

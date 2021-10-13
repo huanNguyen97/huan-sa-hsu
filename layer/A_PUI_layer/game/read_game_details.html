@@ -1,0 +1,25 @@
+{% extends "base_game.html" %}
+{% block content_game %}
+<h1 class="text-center">Table details of {{ game.name }}</h1>
+<br><br>
+<table class="table table-info table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Year Released</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>{{ game.name }}</td>
+        <td>{{ game.category }}</td>
+        <td>{{ game.brand }}</td>
+        <td>{{ game.year_released }}</td>
+        {% if game.price == 0.0 %}
+            <td>FREE</td>
+        {% else %}
+            <td>{{ game.price }}$</td>
+        {% endif %}
+    </tr>
+</table>
+{% endblock %}
