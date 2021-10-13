@@ -22,14 +22,14 @@ app.config['SECRET_KEY'] = 'Huan and Mr.SonKK learn and teach SA together'
 # CRUD
 # Read all list
 @app.route('/', methods=['GET'])
-async def read_games():
+def read_games():
     games_list = game_BUS.read_games_BUS()
     return render_template('game/read_games.html', games_list=games_list)
 
 
 # Create new one
 @app.route('/create-game', methods=['GET', 'POST'])
-async def create_game():
+def create_game():
     if request.method == 'POST':
         game_created = game(
             id = None,
@@ -58,7 +58,7 @@ async def create_game():
 
 # Violate DRY, fix later !!!
 @app.route('/update-game/<int:game_id>', methods=['GET', 'POST'])
-async def update_game(game_id):
+def update_game(game_id):
     if request.method == 'POST':
         game_edited = game(
             id = request.form['id'],
@@ -87,7 +87,7 @@ async def update_game(game_id):
 # POST for insteading is ok
 # Fix later
 @app.route('/delete-game/<int:game_id>', methods=['GET', 'POST'])
-async def delete_game(game_id):
+def delete_game(game_id):
     game_BUS.delete_game_BUS(game_id)
     flash('Game was deleted', 'delete-success')
     return redirect(url_for('read_games'))
@@ -95,14 +95,14 @@ async def delete_game(game_id):
 
 # Read details
 @app.route('/read-game-details/<int:game_id>', methods=['GET'])
-async def read_game_details(game_id):
+def read_game_details(game_id):
     game_details = game_BUS.read_game_details_BUS(game_id)
     return render_template('game/read_game_details.html', game=game_details)
 
 
 # Search by name
 @app.route('/search-games', methods=['GET', 'POST'])
-async def search_games():
+def search_games():
     keyword = request.form['text-of-searching']
     keyword_searched = "%{0}%".format(keyword)
     games_list = game_BUS.search_games_BUS(keyword_searched)
