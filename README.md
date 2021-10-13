@@ -10,7 +10,7 @@
 
 ### 3. Issues exist
 
-- Http method 'PUT' and 'DELETE' cannot use for update_game() and delete_game(). Have use 'POST' for insteading and it's work.
+- Http method 'PUT' and 'DELETE' cannot use for update_game() and delete_game(). Have used 'POST' for insteading and it's work.
 - Some code in DAO layer violate DRY. Fix later
 
 
