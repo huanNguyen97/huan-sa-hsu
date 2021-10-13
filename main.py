@@ -114,6 +114,5 @@ async def search_games():
 
 if __name__ == '__main__':
     app.run(
-        debug=True,
-        port=8000
+        debug=True
     )
