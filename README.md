@@ -1,2 +1,2 @@
 # huan-sa-hsu
-# ![Architecture](https://drive.google.com/drive/my-drive/n-layer.drawio)
+# ![Architecture](https://drive.google.com/file/d/1Q5_eppIwtvwOx1oNqqRwuVoxQJyn81Ym/view?usp=sharing)
