@@ -14,6 +14,31 @@
 - Some code in DAO layer violate DRY. Fix later
 
 # Week 3: SQL Primary or ORM
+SQL primary -> ORM
+
+mycursor.execute("SELECT * FROM game")
+
+
+sql = """
+    INSERT INTO game (id, name, category, brand, year_released, price) 
+    VALUES (%s, %s, %s, %s, %s, %s)
+"""
+
+
+sql = """
+    UPDATE game 
+    SET name = %s, category = %s, brand = %s, year_released = %s, price = %s
+    WHERE id = %s
+"""
+
+
+sql = "DELETE FROM game WHERE id = %s"
+
+
+sql = "SELECT * FROM game WHERE id = %s"
+
+
+sql = "SELECT * FROM game WHERE name LIKE %s"
 
 
 
