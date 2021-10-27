@@ -13,4 +13,10 @@
 - Http method 'PUT' and 'DELETE' cannot use for update_game() and delete_game(). Have used 'POST' for insteading and it's work.
 - Some code in DAO layer violate DRY. Fix later
 
+# Week 3: SQL Primary or ORM
+
+
+
+# Week 4: API for mobile app
+
 
