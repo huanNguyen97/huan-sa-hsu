@@ -1,19 +1,12 @@
 # Package in pip
-<<<<<<< HEAD
-=======
 # Flask package
->>>>>>> react native
 from flask import (
     render_template,
     redirect,
     url_for,
     request,
-<<<<<<< HEAD
-    flash
-=======
     flash,
     jsonify
->>>>>>> react native
 )
 
 # Package of project owner
@@ -21,12 +14,9 @@ import app
 from DTO.game_DTO import game
 from layer.B_BUS_layer.game_BUS import game_BUS
 
-<<<<<<< HEAD
-=======
 # JSON to response for react native
 import JSON.game_JSON as JSON
 
->>>>>>> react native
 
 app = app.application
 app.config['SECRET_KEY'] = 'Huan and Mr.SonKK learn and teach SA together'
@@ -34,11 +24,6 @@ app.config['SECRET_KEY'] = 'Huan and Mr.SonKK learn and teach SA together'
 # Flask app
 # ---------------------------------------------------
 # ---------------------------------------------------
-<<<<<<< HEAD
-=======
-
-
->>>>>>> react native
 # CRUD
 # Read all list
 @app.route('/', methods=['GET'])
@@ -113,8 +98,6 @@ async def delete_game(game_id):
     return redirect(url_for('read_games'))
 
 
-<<<<<<< HEAD
-=======
 # Search by name
 @app.route('/search-games', methods=['GET', 'POST'])
 async def search_games():
@@ -124,26 +107,14 @@ async def search_games():
     return render_template('game/read_games.html', games_list=games_list)
 
 
->>>>>>> react native
 # Read details
 @app.route('/read-game-details/<int:game_id>', methods=['GET'])
 async def read_game_details(game_id):
     game_details = game_BUS.read_game_details_BUS(game_id)
     return render_template('game/read_game_details.html', game=game_details)
-<<<<<<< HEAD
 
 
-# Search by name
-@app.route('/search-games', methods=['GET', 'POST'])
-async def search_games():
-    keyword = request.form['text-of-searching']
-    keyword_searched = "%{0}%".format(keyword)
-    games_list = game_BUS.search_games_BUS(keyword_searched)
-    return render_template('game/read_games.html', games_list=games_list)
-# ---------------------------------------------------
-# ---------------------------------------------------
-# End app
-=======
+
 # ---------------------------------------------------
 # ---------------------------------------------------
 # End app
@@ -238,15 +209,10 @@ async def read_game_details_JSON(game_id):
 # ---------------------------------------------------
 # ---------------------------------------------------
 # End mobile
->>>>>>> react native
-
 
 if __name__ == '__main__':
     app.run(
-<<<<<<< HEAD
-=======
-        host="huan-sa-hsu-orm-react-native",
+        # host="huan-sa-hsu-orm-react-native",
         port="8000",
->>>>>>> react native
         debug=True
     )

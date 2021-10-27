@@ -1,6 +1,5 @@
 import app
 
-<<<<<<< HEAD
 # db = app.database
 
 # # DTO use with ORM
@@ -25,8 +24,6 @@ import app
 
 
 # DTO use with primary SQL
-class game():
-=======
 db = app.database
 
 class game(db.Model):
@@ -37,7 +34,7 @@ class game(db.Model):
     year_released = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Float, nullable=False)
 
->>>>>>> react native
+
     def __init__(self, id, name, category, brand, year_released, price):
         self.id = id
         self.name = name
@@ -47,8 +44,7 @@ class game(db.Model):
         self.price = price
 
     def __repr__(self):
-<<<<<<< HEAD
         return '<Name %r>' % self.name
-=======
-        return '<Name %r>' % self.name
->>>>>>> react native
+
+
+
