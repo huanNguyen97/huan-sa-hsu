@@ -62,13 +62,13 @@ sql = "SELECT * FROM game WHERE name LIKE %s"   ->  games = game.query.filter(ga
 
 
 # Week 4: API for mobile app
-From 6 API at first (render Jinja2Template), create more 6 api just response json data for react native fetching to.
+From 6 API at first (render Jinja2Template), create more 6 api just response json data for react native fetching to. Total 12 API
 
-@app.route('/api/get_all', methods=['GET'])
-@app.route('/api/create-game', methods=['POST'])
-@app.route('/api/update-game/<int:game_id>', methods=['PUT'])
-@app.route('/api/delete-game/<int:game_id>', methods=['DELETE'])
-@app.route('/api/search-games', methods=['GET', 'POST'])
+@app.route('/api/get_all', methods=['GET']),
+@app.route('/api/create-game', methods=['POST']),
+@app.route('/api/update-game/<int:game_id>', methods=['PUT']),
+@app.route('/api/delete-game/<int:game_id>', methods=['DELETE']),
+@app.route('/api/search-games', methods=['GET', 'POST']),
 @app.route('/api/read-game-details/<int:game_id>', methods=['GET'])
 
 
