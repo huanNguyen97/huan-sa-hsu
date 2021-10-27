@@ -37,7 +37,11 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
 VIRTUAL_ENV="/home/huan/Python/Flask/Game-hsu-project/test2/env"
+=======
+VIRTUAL_ENV="/home/huan/Python/Flask/Game-hsu-project/ORM/env"
+>>>>>>> react native
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

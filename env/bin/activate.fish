@@ -29,7 +29,11 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
 set -gx VIRTUAL_ENV "/home/huan/Python/Flask/Game-hsu-project/test2/env"
+=======
+set -gx VIRTUAL_ENV "/home/huan/Python/Flask/Game-hsu-project/ORM/env"
+>>>>>>> react native
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

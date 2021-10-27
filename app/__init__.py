@@ -1,16 +1,24 @@
+<<<<<<< HEAD
 # Create flask app
+=======
+>>>>>>> react native
 from flask import (
    Flask 
 )
 from flask_sqlalchemy import SQLAlchemy
+<<<<<<< HEAD
 
 # Mysql primary 
 import mysql.connector
+=======
+from flask_marshmallow import Marshmallow
+>>>>>>> react native
 
 application = Flask(
     __name__,
     template_folder="../layer/A_PUI_layer"
 )
+<<<<<<< HEAD
 
 # # ORM with sqlalchemy
 # application.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://b5ccecc68435b4:715fc6a8@us-cdbr-east-04.cleardb.com/heroku_ce6f8f81c233b36"
@@ -30,3 +38,10 @@ database = mysql.connector.connect(
     password="715fc6a8",
     database="heroku_ce6f8f81c233b36"
 )
+=======
+application.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://b5ccecc68435b4:715fc6a8@us-cdbr-east-04.cleardb.com/heroku_ce6f8f81c233b36"
+application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+database = SQLAlchemy(application)
+marshmallow = Marshmallow(application)
+>>>>>>> react native

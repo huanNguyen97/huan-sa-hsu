@@ -8,6 +8,7 @@ from DTO.game_DTO import game
 
 class game_DAO():    
     def read_games_DAO() -> List[game]:
+<<<<<<< HEAD
         # games = game.query.all() -> ORM old
 
         mycursor = db.cursor()
@@ -20,12 +21,17 @@ class game_DAO():
             game_list.append(game_test)
 
         return game_list 
+=======
+        games = game.query.all()    
+        return games    
+>>>>>>> react native
     
     def create_game_DAO(game_created: game) -> bool:
         game_result = False
 
         # Check all type of data have inputed
         if game_DAO_subclass.check_type_game_created(game_created):
+<<<<<<< HEAD
             # db.session.add(game_created)
             # db.session.commit()
             
@@ -45,12 +51,17 @@ class game_DAO():
             mycursor.execute(sql, val)
 
             db.commit()
+=======
+            db.session.add(game_created)
+            db.session.commit()
+>>>>>>> react native
             game_result = True
         else:
             pass    # That's mean game_result still equal False
         return game_result
 
     def update_game_DAO(game_edited: game) -> bool:
+<<<<<<< HEAD
         game_result = False
      
         if game_DAO_subclass.check_type_game_created(game_edited):
@@ -82,12 +93,29 @@ class game_DAO():
             mycursor.execute(sql, val)
             db.commit()
 
+=======
+        game_DAO_subclass.check(game_edited)
+        game_result = False
+     
+        if game_DAO_subclass.check_type_game_created(game_edited):
+            game_details = game.query.get(game_edited.id)
+
+            game_details.id = game_edited.id
+            game_details.name = game_edited.name
+            game_details.category = game_edited.category    
+            game_details.brand = game_edited.brand
+            game_details.year_released = game_edited.year_released
+            game_details.price = game_edited.price
+
+            db.session.commit()
+>>>>>>> react native
             game_result = True
         else:    # That's mean game_result still equal False
             pass
         return game_result
     
     def delete_game_DAO(game_id: int) -> bool:
+<<<<<<< HEAD
         # game_deleted = game.query.get(game_id)
         
         # db.session.delete(game_deleted)
@@ -100,10 +128,17 @@ class game_DAO():
 
         mycursor.execute(sql, adr)
         db.commit()
+=======
+        game_deleted = game.query.get(game_id)
+        
+        db.session.delete(game_deleted)
+        db.session.commit()
+>>>>>>> react native
 
         return True
 
     def read_game_details_DAO(game_id: int) -> game:
+<<<<<<< HEAD
         # game_result = game.query.get(game_id)
 
         mycursor = db.cursor()
@@ -141,6 +176,14 @@ class game_DAO():
             game_list.append(game_test)
 
         return game_list
+=======
+        game_result = game.query.get(game_id)
+        return game_result
+    
+    def search_games_DAO(keyword_searched: str) -> List[game]:
+        games = game.query.filter(game.name.like(keyword_searched)).all()
+        return games
+>>>>>>> react native
 
 
 class game_DAO_subclass():
@@ -155,4 +198,10 @@ class game_DAO_subclass():
                 return True
         except:
             return False
+<<<<<<< HEAD
+=======
+    
+    def check(game_edited: game):
+        pass
+>>>>>>> react native
         
